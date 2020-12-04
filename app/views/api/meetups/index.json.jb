@@ -1,0 +1,4 @@
+@meetups.map do |meetup|
+  render partial: "meetup.json.jb",
+         locals: { meetup: meetup }
+end

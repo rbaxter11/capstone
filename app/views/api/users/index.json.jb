@@ -1,0 +1,4 @@
+@users.map do |user|
+  render partial: "user.json.jb",
+         locals: { user: user }
+end
