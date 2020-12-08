@@ -1,7 +1,7 @@
 {
   id: meetup.id,
   location_name: meetup.location_name,
-  datetime: meetup.datetime,
+  start_time: meetup.start_time,
   game_id: meetup.game_id,
   host_id: meetup.host_id,
   participant_id: meetup.participant_id,

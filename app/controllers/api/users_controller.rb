@@ -35,8 +35,25 @@ class Api::UsersController < ApplicationController
   end
 
   def update
+    if current_user
+      input = params["id"]
+      @user = User.find_by(id: input)
+      @user.username = params["username"] || @user.username
+      @user.email = params["email"] || @user.email
+      if @user.save
+        render "show.json.jb"
+      else
+        render json: { error: @user.errors.full_messages },
+               status: :unprocessable_entity
+      end
+    end
   end
 
   def new
+    render json: { message: "Need to create this page!" }
+  end
+
+  def edit
+    render json: { message: "Need to create this page!" }
   end
 end

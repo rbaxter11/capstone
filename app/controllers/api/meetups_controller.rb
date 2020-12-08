@@ -15,9 +15,9 @@ class Api::MeetupsController < ApplicationController
   def create
     @meetup = Meetup.new({
       location_name: params["location_name"],
-      datetime: params["datetime"],
+      start_time: params["start_time"],
       game_id: params["game_id"],
-      host_id: params["host_id"],
+      host_id: current_user.id,
       participant_id: params["participant_id"],
     })
     if @meetup.save
@@ -26,5 +26,37 @@ class Api::MeetupsController < ApplicationController
       render json: { error: @meetup.errors.full_messages },
              status: :unprocessable_entity
     end
+  end
+
+  def update
+    if current_user
+      input = params["id"]
+      @meetup = Meetup.find_by(id: input)
+      @meetup.location_name = params["location_name"] || @meetup.location_name
+      @meetup.start_time = params["start_time"] || @meetup.start_time
+      @meetup.game_id = params["game_id"] || @meetup.game_id
+      @meetup.participant_id = params["participant_id"] || @meetup.participant_id
+      if @meetup.save
+        render "show.json.jb"
+      else
+        render json: { error: @meetup.errors.full_messages },
+               status: :unprocessable_entity
+      end
+    end
+  end
+
+  def destroy
+    input = params["id"]
+    @meetup = Meetup.find_by(id: input)
+    @meetup.destroy
+    render json: { message: "Meetup removed" }
+  end
+
+  def new
+    render json: { message: "Need to create this page!" }
+  end
+
+  def edit
+    render json: { message: "Need to create this page!" }
   end
 end

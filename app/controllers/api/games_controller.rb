@@ -4,10 +4,11 @@ class Api::GamesController < ApplicationController
   def create
     @game = Game.new({
       name: params["name"],
-      num_of_players: params["number of players"],
+      num_of_players: params["num_of_players"],
       duration: params["duration"],
       difficulty: params["difficulty"],
       boxart: params["boxart"],
+      user_id: current_user.id,
     })
     if @game.save
       render "show.json.jb"
@@ -43,5 +44,8 @@ class Api::GamesController < ApplicationController
       render json: { error: @game.errors.full_messages },
              status: :unprocessable_entity
     end
+  end
+
+  def destroy
   end
 end

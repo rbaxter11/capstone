@@ -4,7 +4,7 @@ class Meetup < ApplicationRecord
   belongs_to :game
 
   validates :location_name, presence: true, length: { in: 4..60 }
-  validates :datetime, presence: true, length: { in: 4..60 }
+  validates :start_time, presence: true, length: { in: 4..60 }
   validates :game_id, presence: true, numericality: { only_integer: true }
   validates :host_id, presence: true, numericality: { only_integer: true }
   validates :participant_id, presence: true, numericality: { only_integer: true }
