@@ -1,4 +1,6 @@
 class Api::MeetupsController < ApplicationController
+  before_action :authenticate_user, except: [:index, :show]
+
   def index
     @meetups = Meetup.all
     render "index.json.jb"

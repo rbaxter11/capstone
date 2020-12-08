@@ -6,11 +6,11 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-# user = User.new(username: "First User", email: "firstuser@example.com", password_digest: "password")
+# user = User.new(username: "First User", email: "firstuser@example.com", password: "password")
 # user.save
 
-# game = Game.new(name: "Yahtzee", num_of_players: 4, duration: 30, difficulty: 8, boxart: "yahtzee.jpg")
-# game.save
+game = Game.new(name: "Yahtzee", num_of_players: 4, duration: 30, difficulty: 8, boxart: "yahtzee.jpg", user_id: 1)
+game.save
 
 # meetup = Meetup.new(location_name: "Starbucks", datetime: "Tuesday January 1 2021", game_id: 1, host_id: 1, participant_id: 2)
 # meetup.save
