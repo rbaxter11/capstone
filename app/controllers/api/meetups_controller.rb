@@ -51,12 +51,4 @@ class Api::MeetupsController < ApplicationController
     @meetup.destroy
     render json: { message: "Meetup removed" }
   end
-
-  def new
-    render json: { message: "Need to create this page!" }
-  end
-
-  def edit
-    render json: { message: "Need to create this page!" }
-  end
 end

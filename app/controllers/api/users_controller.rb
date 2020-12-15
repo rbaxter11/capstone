@@ -1,6 +1,6 @@
 class Api::UsersController < ApplicationController
-  before_action :authenticate_user, except: [:index, :show, :new]
-  before_action :authenticate_admin, except: [:index, :show, :create, :update, :new]
+  before_action :authenticate_user, except: [:index, :show, :create]
+  before_action :authenticate_admin, except: [:index, :show, :create, :update]
 
   def index
     @users = User.all
@@ -47,13 +47,5 @@ class Api::UsersController < ApplicationController
                status: :unprocessable_entity
       end
     end
-  end
-
-  def new
-    render json: { message: "Need to create this page!" }
-  end
-
-  def edit
-    render json: { message: "Need to create this page!" }
   end
 end
