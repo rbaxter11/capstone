@@ -8,9 +8,10 @@ class Api::UsersController < ApplicationController
   end
 
   def show
-    input = params["id"]
-    @user = User.find_by(id: input)
-    render "show.json.jb"
+    if current_user
+      @user = current_user
+      render "show.json.jb"
+    end
   end
 
   def create

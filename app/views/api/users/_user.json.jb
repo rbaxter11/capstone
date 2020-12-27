@@ -2,4 +2,6 @@
   id: user.id,
   username: user.username,
   email: user.email,
+  games: user.game_ids,
+  users_games: user.games,
 }
