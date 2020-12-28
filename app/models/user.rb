@@ -3,7 +3,8 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true
   validates :username, presence: true, uniqueness: true, length: { in: 4..15 }
 
-  has_many :games
+  has_many :game_ownerships
+  has_many :games, through: :game_ownerships
   has_many :meetups
   has_many :participant_meetups, class_name: "Meetup", foreign_key: "participant_id"
   has_many :participants, through: :participant_meetups, source: :participant
