@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_28_005140) do
+ActiveRecord::Schema.define(version: 2020_12_28_034139) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,11 +34,21 @@ ActiveRecord::Schema.define(version: 2020_12_28_005140) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "meetup_invitations", force: :cascade do |t|
+    t.bigint "meetup_id", null: false
+    t.bigint "user_id", null: false
+    t.integer "invited_by_id"
+    t.boolean "accepted", default: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["meetup_id"], name: "index_meetup_invitations_on_meetup_id"
+    t.index ["user_id"], name: "index_meetup_invitations_on_user_id"
+  end
+
   create_table "meetups", force: :cascade do |t|
     t.string "location_name"
     t.integer "game_id"
     t.integer "host_id"
-    t.integer "participant_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.datetime "start_time"
@@ -55,4 +65,6 @@ ActiveRecord::Schema.define(version: 2020_12_28_005140) do
 
   add_foreign_key "game_ownerships", "games"
   add_foreign_key "game_ownerships", "users"
+  add_foreign_key "meetup_invitations", "meetups"
+  add_foreign_key "meetup_invitations", "users"
 end

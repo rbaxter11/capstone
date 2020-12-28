@@ -4,7 +4,6 @@
   start_time: meetup.start_time,
   game_id: meetup.game_id,
   host_id: meetup.host_id,
-  participant_id: meetup.participant_id,
   game_name: meetup.game.name,
   host_name: meetup.host.username,
   participant_name: meetup.participant.username,

@@ -18,7 +18,6 @@ class Api::MeetupsController < ApplicationController
       start_time: params["start_time"],
       game_id: params["game_id"],
       host_id: current_user.id,
-      participant_id: params["participant_id"],
     })
     if @meetup.save
       render "show.json.jb"
@@ -35,7 +34,6 @@ class Api::MeetupsController < ApplicationController
       @meetup.location_name = params["location_name"] || @meetup.location_name
       @meetup.start_time = params["start_time"] || @meetup.start_time
       @meetup.game_id = params["game_id"] || @meetup.game_id
-      @meetup.participant_id = params["participant_id"] || @meetup.participant_id
       if @meetup.save
         render "show.json.jb"
       else
