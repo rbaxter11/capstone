@@ -1,0 +1,5 @@
+{
+  id: game.id,
+  game_id: game.game_id,
+  user_id: game.user_id,
+}

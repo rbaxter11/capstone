@@ -1,0 +1,2 @@
+render partial: "game_ownership.json.jb",
+  locals: { game: @game }

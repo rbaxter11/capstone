@@ -1,0 +1,2 @@
+render partial: "meetup_invitation.json.jb",
+       locals: { invitation: @invitation }

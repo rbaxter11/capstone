@@ -23,5 +23,17 @@ Rails.application.routes.draw do
     post "/meetups" => "meetups#create"
     patch "/meetups/:id" => "meetups#update"
     delete "/meetups/:id" => "meetups#destroy"
+
+    get "/game_ownerships" => "game_ownerships#index"
+    get "/game_ownerships/:id" => "game_ownerships#show"
+    post "/game_ownerships" => "game_ownerships#create"
+    patch "/game_ownerships/:id" => "game_ownerships#update"
+    delete "/game_ownerships/:id" => "game_ownerships#destroy"
+
+    get "/meetup_invitations" => "meetup_invitations#index"
+    get "/meetup_invitations/:id" => "meetup_invitations#show"
+    post "/meetup_invitations" => "meetup_invitations#create"
+    patch "/meetup_invitations/:id" => "meetup_invitations#update"
+    delete "/meetup_invitations/:id" => "meetup_invitations#destroy"
   end
 end

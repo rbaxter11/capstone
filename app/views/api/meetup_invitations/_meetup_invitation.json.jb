@@ -1,0 +1,6 @@
+{
+  id: invitation.id,
+  meetup_id: invitation.meetup_id,
+  user_id: invitation.user_id,
+  accepted: invitation.accepted,
+}

@@ -5,5 +5,4 @@
   duration: game.duration,
   difficulty: game.difficulty,
   boxart: game.boxart,
-  user_id: game.user_id,
 }
