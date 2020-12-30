@@ -21,3 +21,5 @@ class GameImporter
 end
 
 # data["games"][0]["name"]
+# Game.where(name: game["name"]).first_or_create do |game|
+# Figure this ^^ out
