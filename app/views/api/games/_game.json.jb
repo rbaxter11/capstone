@@ -1,8 +1,13 @@
-{
+info = {
   id: game.id,
   name: game.name,
   num_of_players: game.num_of_players,
   duration: game.duration,
   difficulty: game.difficulty,
   boxart: game.boxart,
+  ownership: nil,
 }
+if current_user
+  info[:ownership] = game.game_ownerships.find_by(user_id: current_user.id)
+end
+info
