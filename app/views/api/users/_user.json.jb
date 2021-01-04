@@ -4,4 +4,5 @@
   email: user.email,
   games: user.game_ids,
   users_games: user.games,
+  quantity: user.games.count,
 }
