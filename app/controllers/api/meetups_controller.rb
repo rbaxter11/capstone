@@ -22,6 +22,12 @@ class Api::MeetupsController < ApplicationController
     if @meetup.save
       render "show.json.jb"
     else
+      Rails.logger.info("--------------------------------")
+      Rails.logger.info("--------------------------------")
+      Rails.logger.info(@meetup.errors.full_messages)
+      Rails.logger.info(params["start_time"])
+      Rails.logger.info("--------------------------------")
+      Rails.logger.info("--------------------------------")
       render json: { error: @meetup.errors.full_messages },
              status: :unprocessable_entity
     end
