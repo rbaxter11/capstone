@@ -5,4 +5,5 @@
   games: user.game_ids,
   users_games: user.games,
   quantity: user.games.count,
+  invitations: user.meetup_invitations.map { |inv| render partial: "api/meetup_invitations/meetup_invitation.json.jb", locals: { invitation: inv } },
 }

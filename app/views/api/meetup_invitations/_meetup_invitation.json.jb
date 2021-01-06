@@ -1,6 +1,10 @@
 {
   id: invitation.id,
-  meetup_id: invitation.meetup_id,
-  user_id: invitation.user_id,
+  meetup: invitation.meetup,
+  user: invitation.user,
   accepted: invitation.accepted,
+  invited_by: invitation.invited_by,
+  game_name: invitation.meetup.game.name,
+  host_name: invitation.meetup.host.username,
+
 }
