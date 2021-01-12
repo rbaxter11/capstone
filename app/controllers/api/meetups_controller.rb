@@ -15,6 +15,7 @@ class Api::MeetupsController < ApplicationController
   def create
     @meetup = Meetup.new({
       location_name: params["location_name"],
+      address: params["address"],
       start_time: params["start_time"],
       game_id: params["game_id"],
       host_id: current_user.id,
@@ -37,6 +38,7 @@ class Api::MeetupsController < ApplicationController
     if current_user
       input = params["id"]
       @meetup = Meetup.find_by(id: input)
+      @meetup.address = params["address"] || @meetup.address
       @meetup.location_name = params["location_name"] || @meetup.location_name
       @meetup.start_time = params["start_time"] || @meetup.start_time
       @meetup.game_id = params["game_id"] || @meetup.game_id

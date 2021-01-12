@@ -2,6 +2,8 @@
   id: user.id,
   username: user.username,
   email: user.email,
+  bio: user.bio,
+  avatar: user.avatar,
   games: user.game_ids,
   users_games: user.games,
   quantity: user.games.count,

@@ -23,6 +23,8 @@ class Api::UsersController < ApplicationController
       email: params[:email],
       password: params[:password],
       password_confirmation: params[:password_confirmation],
+      bio: params[:bio],
+      avatar: params[:avatar],
     )
     if user.save
       render json: { message: "User created successfully" }, status: :created
@@ -44,6 +46,8 @@ class Api::UsersController < ApplicationController
       @user = User.find_by(id: input)
       @user.username = params["username"] || @user.username
       @user.email = params["email"] || @user.email
+      @user.bio = params["bio"] || @user.bio
+      @user.avatar = params["avatar"] || @user.avatar
       if @user.save
         render "show.json.jb"
       else
