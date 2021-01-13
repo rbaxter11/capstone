@@ -5,6 +5,7 @@
   bio: user.bio,
   avatar: user.avatar,
   games: user.game_ids,
+  tenure: user.created_at,
   users_games: user.games,
   first_game: user.games.first,
   second_game: user.games.second,

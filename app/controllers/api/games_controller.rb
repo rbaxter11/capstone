@@ -8,7 +8,6 @@ class Api::GamesController < ApplicationController
       duration: params["duration"],
       difficulty: params["difficulty"],
       boxart: params["boxart"],
-      user_id: current_user.id,
     })
     if @game.save
       render "show.json.jb"
