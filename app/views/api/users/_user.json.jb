@@ -6,6 +6,10 @@
   avatar: user.avatar,
   games: user.game_ids,
   users_games: user.games,
+  first_game: user.games.first,
+  second_game: user.games.second,
+  third_game: user.games.third,
   quantity: user.games.count,
+  invites_sent: user.meetup_invitations.count,
   invitations: user.meetup_invitations.map { |inv| render partial: "api/meetup_invitations/meetup_invitation.json.jb", locals: { invitation: inv } },
 }
