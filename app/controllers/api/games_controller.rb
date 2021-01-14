@@ -18,7 +18,7 @@ class Api::GamesController < ApplicationController
   end
 
   def index
-    @games = Game.all
+    @games = Game.order(:name)
     render "index.json.jb"
   end
 
