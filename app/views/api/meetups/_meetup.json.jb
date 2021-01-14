@@ -8,5 +8,6 @@
   game_name: meetup.game.name,
   host_name: meetup.host.username,
   players: meetup.users,
+  invitations: meetup.meetup_invitations.map { |inv| render partial: "api/meetup_invitations/meetup_invitation.json.jb", locals: { invitation: inv } },
 
 }
