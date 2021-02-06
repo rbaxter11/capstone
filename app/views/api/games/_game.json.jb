@@ -6,6 +6,7 @@ info = {
   difficulty: game.difficulty,
   boxart: game.boxart,
   ownership: nil,
+  description: game.description,
 }
 if current_user
   info[:ownership] = game.game_ownerships.find_by(user_id: current_user.id)

@@ -24,14 +24,16 @@ class GameImporter
     response = HTTP.get("https://api.boardgameatlas.com/api/search?client_id=JLBr5npPhV")
     data = response.parse
 
-    data["games"].each do |game|
-      current_game = Game.where(name: game["name"]).first_or_create do |info|
-        current_game.boxart: info["image_url"],
-        current_game.num_of_players: info["max_players"],
-        current_game.duration: info["max_playtime"],
-        current_game.difficulty: info["min_age"],
-        current_game.description: info["description"],
-      end
+    data["games"].each do |game_data|
+      puts game_data["description"].first(20)
+      Game.where(name: game_data["name"]).first_or_create.update(
+        name: game_data["name"],
+        boxart: game_data["image_url"],
+        num_of_players: game_data["max_players"],
+        duration: game_data["max_playtime"],
+        difficulty: game_data["min_age"],
+        description: game_data["description"],
+      )
     end
   end
 end
